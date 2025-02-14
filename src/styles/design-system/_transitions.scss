@@ -1,0 +1,13 @@
+body {
+    &.is-transitioning {
+        main {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+    }
+
+    main {
+        opacity: 1;
+        transition: opacity 0.3s ease-in;
+    }
+}

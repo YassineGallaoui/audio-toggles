@@ -1,0 +1,13 @@
+.statsContainer {
+    display: none;
+}
+
+.statsContainer.show {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: min-content;
+    width: max-content;
+    background-color: rgba(0, 0, 0, 0.5);
+}
