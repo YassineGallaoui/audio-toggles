@@ -1,6 +1,5 @@
 import Link from "next/link";
 import style from './style.module.scss';
-import NavbarLinks from "./NavbarLink";
 
 const Navbar = () => {
 
@@ -15,7 +14,7 @@ const Navbar = () => {
                         Home
                     </Link>
                 </div>
-                <NavbarLinks></NavbarLinks>
+                {/* <NavbarLinks></NavbarLinks> */}
             </div>
         </nav>
     )

@@ -13,8 +13,8 @@ const InterFont = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "nextjs boilerplate",
-  description: "This is a generic next.js boilerplate, with grid system and custom routing",
+  title: "Audio Toggles",
+  description: "This is a free collection of animated audio icons",
 };
 
 export default function RootLayout({
@@ -22,12 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  /* const isProd = process.env.NEXT_PUBLIC_ENV === 'prod'; */
+  const isProd = process.env.NEXT_PUBLIC_ENV === 'prod';
 
   return (
     <html lang="en">
       <body className={`${InterFont.variable}`}>
-        {/* !isProd &&  */< FEHelpers />}
+        {!isProd && < FEHelpers />}
         <Navbar></Navbar>
         <main
           className={'relative wp-100'}>
