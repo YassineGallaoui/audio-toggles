@@ -7,13 +7,12 @@ import AudioIcon2 from "../AudioIcons/AudioIcon2"
 import AudioIcon3 from "../AudioIcons/AudioIcon3";
 import styles from "./style.module.scss"
 
-
 const IconsGrid = () => {
     const [allAudioOn, setAllAudioOn] = useState<boolean>(true);
 
     return (
         <>
-            <div className="col-12 flex justify-end items-center">
+            <div className="col-12 flex justify-end items-center mb-4">
                 <button className={styles.enableDisableButton} onClick={() => setAllAudioOn(!allAudioOn)}>
                     {allAudioOn ? "disable all" : "enable all"}
                 </button>
@@ -23,11 +22,11 @@ const IconsGrid = () => {
             </AudioIconContainer>
 
             <AudioIconContainer allAudioOn={allAudioOn}>
-                <AudioIcon2></AudioIcon2>
+                <AudioIcon2 />
             </AudioIconContainer>
 
             <AudioIconContainer allAudioOn={allAudioOn}>
-                <AudioIcon3></AudioIcon3>
+                <AudioIcon3 />
             </AudioIconContainer>
         </>
     )
