@@ -8,7 +8,6 @@ interface AudioPlayerProps {
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, audioOn }) => {
     const [sound, setSound] = useState<Howl | null>(null);
-    /* const [isPlaying, setIsPlaying] = useState(false); */
 
     useEffect(() => {
         if (src) {
@@ -24,15 +23,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, audioOn }) => {
                 html5: true,
                 volume: 0,
                 onplay: () => {
-                    /* setIsPlaying(true); */
                     newSound.fade(0, 1, 500);
                 },
                 onend: () => {
-                    /* setIsPlaying(false); */
                     newSound.play();
-                },/* 
-                onstop: () => setIsPlaying(false),
-                onpause: () => setIsPlaying(false), */
+                },
             });
             console.log(newSound)
             setSound(newSound);

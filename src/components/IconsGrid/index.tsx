@@ -36,8 +36,6 @@ const IconsGrid = () => {
             mp3Link: "./bbDelta.mp3"
         },
     ]
-
-    /* const [allAudioOn, setAllAudioOn] = useState<boolean>(true); */
     const [selectedMp3, setSelectedMp3] = useState<string>(defaultAudioOptions[0].mp3Link);
     const [audioOn, setAudioOn] = useState<boolean>(true);
 
@@ -49,27 +47,19 @@ const IconsGrid = () => {
                 options={defaultAudioOptions}
                 onSelect={(v: string) => { setSelectedMp3(v); setAudioOn(true); }}
             />
-            {/* <div className="col-4 col-md-2 col-lg-2 flex justify-end items-center mb-4">
-                <button
-                    className={styles.enableDisableButton}
-                    onClick={() => setAllAudioOn(!allAudioOn)}
-                >
-                    {allAudioOn ? "Disable All" : "Enable All"}
-                </button>
-            </div> */}
             <AudioPlayer src={selectedMp3} audioOn={audioOn} />
 
 
 
-            <AudioIconContainer /* allAudioOn={allAudioOn} */ index={0} changeAudioOn={() => setAudioOn(!audioOn)}>
+            <AudioIconContainer index={0} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon1 audioOn={audioOn} />
             </AudioIconContainer>
 
-            <AudioIconContainer /* allAudioOn={allAudioOn} */ index={1} changeAudioOn={() => setAudioOn(!audioOn)}>
+            <AudioIconContainer index={1} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon2 audioOn={audioOn} />
             </AudioIconContainer>
 
-            <AudioIconContainer /* allAudioOn={allAudioOn} */ index={2} changeAudioOn={() => setAudioOn(!audioOn)}>
+            <AudioIconContainer index={2} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon3 audioOn={audioOn} />
             </AudioIconContainer>
         </>
