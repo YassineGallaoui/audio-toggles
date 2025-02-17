@@ -1,0 +1,46 @@
+.customSelect {
+    position: relative;
+}
+
+.selectedValue {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.selectedValue:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.options {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    background: linear-gradient(180deg, var(--bg-color) 90%, var(--bg-color-dark) 100%);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    max-height: 12.6rem;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+.options li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.options li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

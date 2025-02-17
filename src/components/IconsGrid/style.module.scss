@@ -1,9 +1,11 @@
 .enableDisableButton {
+    width: 100%;
     border: 0.1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.3rem;
-    background-color: transparent;
+    background-color: var(--bg-color);
+    border-radius: 0.4rem;
     color: rgba(255, 255, 255, 0.7);
-    padding: .4rem 1rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
 
     &:hover {
         border: 0.1px solid rgba(255, 255, 255, 1);

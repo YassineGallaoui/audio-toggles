@@ -1,13 +1,22 @@
 :root {
+  --bg-color-dark: #bdd9e3;
   --bg-color: #d7f4ff;
+  --bg-color-light: #e9f9ff;
   --text-color: #001b26;
+  --text-color-dark: #00141c;
+  --text-color: #001b26;
+  --text-color-light: #002a3b;
   --accent-color: #00b7ff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --bg-color-dark: #00141c;
     --bg-color: #001b26;
+    --bg-color-light: #002a3b;
+    --text-color-dark: #bdd9e3;
     --text-color: #d7f4ff;
+    --text-color-light: #e9f9ff;
   }
 }
 
@@ -17,6 +26,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
