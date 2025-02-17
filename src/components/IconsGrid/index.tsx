@@ -7,6 +7,7 @@ import AudioIcon2 from "../AudioIcons/AudioIcon2";
 import AudioIcon3 from "../AudioIcons/AudioIcon3";
 import AudioPlayer from "../AudioPlayer";
 import CustomSelect, { SelectOption } from "../CustomSelect";
+import styles from './style.module.scss'
 
 const IconsGrid = () => {
     const defaultAudioOptions: SelectOption[] = [
@@ -37,12 +38,15 @@ const IconsGrid = () => {
         },
     ]
     const [selectedMp3, setSelectedMp3] = useState<string>(defaultAudioOptions[0].mp3Link);
-    const [audioOn, setAudioOn] = useState<boolean>(true);
+    const [audioOn, setAudioOn] = useState<boolean>(false);
 
     return (
         <>
+            <button type="button" onClick={() => setAudioOn(!audioOn)} className={`${styles.playButton} col-1 offset-md-4 offset-lg-8 mb-2`}>
+                {!audioOn ? 'Play' : 'Pause'}
+            </button>
             <CustomSelect
-                className={`col-4 col-md-3 offset-md-5 col-lg-3 offset-lg-9 mb-2`}
+                className={`col-4 col-md-3 col-lg-3 mb-2`}
                 placeholder={defaultAudioOptions[0].label}
                 options={defaultAudioOptions}
                 onSelect={(v: string) => { setSelectedMp3(v); setAudioOn(true); }}
