@@ -42,7 +42,10 @@ const IconsGrid = () => {
 
     return (
         <>
-            <button type="button" onClick={() => setAudioOn(!audioOn)} className={`${styles.playButton} col-1 offset-md-4 offset-lg-8 mb-2`}>
+            <button
+                type="button"
+                onClick={() => setAudioOn(!audioOn)}
+                className={`${styles.playButton} col-4 col-md-1 col-lg-1 offset-md-4 offset-lg-8 mb-md-2`}>
                 {!audioOn ? 'Play' : 'Pause'}
             </button>
             <CustomSelect
