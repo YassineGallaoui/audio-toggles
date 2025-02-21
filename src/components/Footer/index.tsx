@@ -12,9 +12,8 @@ const Footer = () => {
                         <Link
                             href="https://www.yassinegallaoui.com/"
                             target="_blank" rel="noopener noreferrer">
-                            {`Yassine's`}
+                            {`Yas`}
                         </Link>
-                        {` fairy fingers`}
                     </span>
                 </div>
             </div>
