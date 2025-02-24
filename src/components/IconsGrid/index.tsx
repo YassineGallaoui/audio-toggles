@@ -10,6 +10,7 @@ import CustomSelect, { SelectOption } from "../CustomSelect";
 import styles from './style.module.scss'
 import AudioIcon4 from "../AudioIcons/AudioIcon4";
 import AudioIcon5 from "../AudioIcons/AudioIcon5";
+import AudioIcon6 from "../AudioIcons/AudioIcon6";
 
 const IconsGrid = () => {
     const defaultAudioOptions: SelectOption[] = [
@@ -78,6 +79,10 @@ const IconsGrid = () => {
 
             <AudioIconContainer index={4} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon5 audioOn={audioOn} />
+            </AudioIconContainer>
+
+            <AudioIconContainer index={5} changeAudioOn={() => setAudioOn(!audioOn)}>
+                <AudioIcon6 audioOn={audioOn} />
             </AudioIconContainer>
         </>
     )

@@ -1,0 +1,130 @@
+.svg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &.on {
+        .outerCircle {
+            animation: none;
+            r: 5;
+            animation: growAndPulseOuter 0.5s ease-out forwards, pulseOuter 2s ease-in-out infinite 0.5s;
+        }
+
+        .innerCircle {
+            animation: none;
+            r: 5;
+            animation: growAndPulseInner 0.5s ease-out forwards, pulseInner 2s ease-in-out infinite 0.5s;
+        }
+    }
+
+    &.off {
+        .outerCircle {
+            animation: shrinkOuter 0.5s ease-in-out forwards;
+        }
+
+        .innerCircle {
+            animation: shrinkInner 0.5s ease-in-out forwards;
+        }
+    }
+}
+
+
+@keyframes growAndPulseOuter {
+    0% {
+        r: 5;
+    }
+
+    100% {
+        r: 25;
+    }
+}
+
+@keyframes pulseOuter {
+    0% {
+        r: 25;
+    }
+
+    15% {
+        r: 30;
+    }
+
+    30% {
+        r: 25;
+    }
+
+    45% {
+        r: 27;
+    }
+
+    60% {
+        r: 24;
+    }
+
+    75% {
+        r: 29;
+    }
+
+    100% {
+        r: 25;
+    }
+}
+
+@keyframes growAndPulseInner {
+    0% {
+        r: 5;
+    }
+
+    100% {
+        r: 15;
+    }
+}
+
+@keyframes pulseInner {
+    0% {
+        r: 15;
+    }
+
+    15% {
+        r: 20;
+    }
+
+    30% {
+        r: 15;
+    }
+
+    45% {
+        r: 17;
+    }
+
+    60% {
+        r: 14;
+    }
+
+    75% {
+        r: 19;
+    }
+
+    100% {
+        r: 15;
+    }
+}
+
+@keyframes shrinkOuter {
+    0% {
+        r: 25;
+    }
+
+    100% {
+        r: 5;
+    }
+}
+
+@keyframes shrinkInner {
+    0% {
+        r: 15;
+    }
+
+    100% {
+        r: 5;
+    }
+}
