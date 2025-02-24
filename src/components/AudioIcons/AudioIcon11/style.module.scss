@@ -8,14 +8,8 @@
         transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
     }
 
-    path.path1 {
+    path.path2 {
         stroke: var(--text-color);
         transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
-    }
-
-    &.on {
-        path {
-            stroke: var(--text-color);
-        }
     }
 }
