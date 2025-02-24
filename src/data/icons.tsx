@@ -46,6 +46,14 @@ const iconsData: IconData[] = [
     {
         id: 10,
         link: "https://github.com/YassineGallaoui/audio-toggles/tree/main/src/components/AudioIcons/AudioIcon10"
+    },
+    {
+        id: 11,
+        link: "https://github.com/YassineGallaoui/audio-toggles/tree/main/src/components/AudioIcons/AudioIcon11"
+    },
+    {
+        id: 12,
+        link: "https://github.com/YassineGallaoui/audio-toggles/tree/main/src/components/AudioIcons/AudioIcon12"
     }
 ]
 
