@@ -14,6 +14,7 @@ const AudioIconContainer = ({ children, index, changeAudioOn }: { children: Reac
     return (
         <div className={styles.gridItem + itemsGridSettings} onClick={() => changeAudioOn()}>
             {/* <div className={styles.gridGuide}></div> */}
+            <span className={styles.index}>{index + 1}</span>
             {childWithProps}
             <Link href={iconsData[index].link} className={styles.iconCodeLink} target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">

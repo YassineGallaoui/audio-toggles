@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -16,6 +15,7 @@ export interface AudioIconProps {
 
 const AudioIcon5: React.FC<AudioIconProps> = ({ audioOn, sizeProp }) => {
     const [size, setSize] = useState<SizeType>(sizeProp ?? { w: 100, h: 100 });
+    const [isInitialTransition, setIsInitialTransition] = useState(true);
 
     useEffect(() => {
         if (sizeProp != null)
@@ -23,6 +23,22 @@ const AudioIcon5: React.FC<AudioIconProps> = ({ audioOn, sizeProp }) => {
         else
             setSize({ w: 100, h: 100 });
     }, [sizeProp]);
+
+    // Handle the initial transition when audioOn first becomes true
+    useEffect(() => {
+        if (audioOn && isInitialTransition) {
+            const timer = setTimeout(() => {
+                setIsInitialTransition(false);
+            }, 500); // Match this with the duration of the initial transition
+
+            return () => clearTimeout(timer);
+        }
+
+        if (!audioOn) {
+            // Reset for next time audioOn becomes true
+            setIsInitialTransition(true);
+        }
+    }, [audioOn, isInitialTransition]);
 
     return (
         <svg
@@ -32,58 +48,94 @@ const AudioIcon5: React.FC<AudioIconProps> = ({ audioOn, sizeProp }) => {
             className={styles.svg + ' ' + (audioOn ? styles.on : '')}
         >
             {/* Bottom Circle */}
-            <motion.circle
-                cx={0}
-                cy={0}
-                fill="rgba(255, 255, 255, 0.5)"
-                initial={{ r: 5 }}
-                animate={{
-                    r: audioOn ? [25, 30, 25] : 5,
-                    transition: audioOn
-                        ? {
-                            // Step 1: Smoothly grow to 25
-                            r: {
-                                duration: 2,
-                                ease: 'easeInOut',
-                                // After reaching 25, start oscillating
-                                times: [0, 0.3, 1], // Timing points for keyframes
-                                values: [5, 25, [28, 30, 27]], // From 5 to 25, then oscillate
-                                repeat: Infinity,
-                            },
-                        }
-                        : {
-                            duration: 0.3,
-                            ease: 'easeInOut',
-                        },
-                }}
-            />
+            {audioOn ? (
+                isInitialTransition ? (
+                    // Initial transition from small to starting animation size
+                    <motion.circle
+                        cx={0}
+                        cy={0}
+                        fill="rgba(255, 255, 255, 0.2)"
+                        initial={{ r: 5 }}
+                        animate={{ r: 25 }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeOut"
+                        }}
+                    />
+                ) : (
+                    // Continuous animation that loops within the array
+                    <motion.circle
+                        cx={0}
+                        cy={0}
+                        fill="rgba(255, 255, 255, 0.2)"
+                        initial={{ r: 25 }}
+                        animate={{ r: [25, 30, 25, 27, 24, 29, 25] }}
+                        transition={{
+                            duration: 2,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            repeatType: "loop"
+                        }}
+                    />
+                )
+            ) : (
+                <motion.circle
+                    cx={0}
+                    cy={0}
+                    fill="rgba(255, 255, 255, 0.2)"
+                    animate={{ r: 5 }}
+                    initial={isInitialTransition ? { r: 5 } : { r: 25 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeInOut"
+                    }}
+                />
+            )}
 
             {/* Top Circle */}
-            <motion.circle
-                cx={0}
-                cy={0}
-                fill="rgba(255, 255, 255, 0.5)"
-                initial={{ r: 5 }}
-                animate={{
-                    r: audioOn ? [15, 25, 15] : 5,
-                    transition: audioOn
-                        ? {
-                            // Step 1: Smoothly grow to 15
-                            r: {
-                                duration: 1.5,
-                                ease: 'easeInOut',
-                                // After reaching 15, start oscillating
-                                times: [0, 0.3, 1], // Timing points for keyframes
-                                values: [5, 20, [18, 25, 23]], // From 5 to 15, then oscillate
-                                repeat: Infinity,
-                            },
-                        }
-                        : {
-                            duration: 0.3,
-                            ease: 'easeInOut',
-                        },
-                }}
-            />
+            {audioOn ? (
+                isInitialTransition ? (
+                    // Initial transition from small to starting animation size
+                    <motion.circle
+                        cx={0}
+                        cy={0}
+                        fill="rgba(255, 255, 255, 0.2)"
+                        initial={{ r: 5 }}
+                        animate={{ r: 15 }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeOut"
+                        }}
+                    />
+                ) : (
+                    // Continuous animation that loops within the array
+                    <motion.circle
+                        cx={0}
+                        cy={0}
+                        fill="rgba(255, 255, 255, 0.2)"
+                        initial={{ r: 15 }}
+                        animate={{ r: [15, 20, 15, 17, 14, 19, 15] }}
+                        transition={{
+                            duration: 2,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            repeatType: "loop"
+                        }}
+                    />
+                )
+            ) : (
+                <motion.circle
+                    cx={0}
+                    cy={0}
+                    fill="rgba(255, 255, 255, 0.2)"
+                    animate={{ r: 5 }}
+                    initial={isInitialTransition ? { r: 5 } : { r: 15 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeInOut"
+                    }}
+                />
+            )}
         </svg>
     );
 };

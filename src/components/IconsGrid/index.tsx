@@ -72,11 +72,11 @@ const IconsGrid = () => {
                 <AudioIcon3 audioOn={audioOn} />
             </AudioIconContainer>
 
-            <AudioIconContainer index={2} changeAudioOn={() => setAudioOn(!audioOn)}>
+            <AudioIconContainer index={3} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon4 audioOn={audioOn} />
             </AudioIconContainer>
 
-            <AudioIconContainer index={2} changeAudioOn={() => setAudioOn(!audioOn)}>
+            <AudioIconContainer index={4} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon5 audioOn={audioOn} />
             </AudioIconContainer>
         </>
