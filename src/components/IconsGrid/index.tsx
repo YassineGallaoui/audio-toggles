@@ -13,6 +13,8 @@ import AudioIcon5 from "../AudioIcons/AudioIcon5";
 import AudioIcon6 from "../AudioIcons/AudioIcon6";
 import AudioIcon7 from "../AudioIcons/AudioIcon7";
 import AudioIcon8 from "../AudioIcons/AudioIcon8";
+import AudioIcon9 from "../AudioIcons/AudioIcon9";
+import AudioIcon10 from "../AudioIcons/AudioIcon10";
 
 const IconsGrid = () => {
     const defaultAudioOptions: SelectOption[] = [
@@ -93,6 +95,14 @@ const IconsGrid = () => {
 
             <AudioIconContainer index={7} changeAudioOn={() => setAudioOn(!audioOn)}>
                 <AudioIcon8 audioOn={audioOn} />
+            </AudioIconContainer>
+
+            <AudioIconContainer index={8} changeAudioOn={() => setAudioOn(!audioOn)}>
+                <AudioIcon9 audioOn={audioOn} />
+            </AudioIconContainer>
+
+            <AudioIconContainer index={9} changeAudioOn={() => setAudioOn(!audioOn)}>
+                <AudioIcon10 audioOn={audioOn} />
             </AudioIconContainer>
         </>
     )
