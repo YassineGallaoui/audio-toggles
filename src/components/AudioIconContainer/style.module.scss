@@ -17,12 +17,9 @@
     &:hover {
         border: 1px solid rgba(255, 255, 255, 0.8);
 
-        .iconCodeLink {
-            opacity: 1;
-            transition: all 0.2s linear;
-        }
-
-        .index {
+        .iconCodeLink,
+        .index,
+        .tag {
             opacity: 1;
             transition: all 0.2s linear;
         }
@@ -72,6 +69,13 @@
 .index {
     position: absolute;
     top: 0.6rem;
+    left: 0.6rem;
+    opacity: 0.1;
+}
+
+.tag {
+    position: absolute;
+    bottom: 0.6rem;
     left: 0.6rem;
     opacity: 0.1;
 }

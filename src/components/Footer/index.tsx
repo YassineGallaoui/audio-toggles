@@ -16,6 +16,18 @@ const Footer = () => {
                         </Link>
                     </span>
                 </div>
+
+                <div className={"flex flex-col col-4 col-md-4 col-lg-6 mb-4"}>
+                    <span className={'text-bold'}>{`
+                    Audio Toggles`}</span>
+                    <span style={{ marginTop: "0.3rem" }}>{`Handcrafted by `}
+                        <Link
+                            href="https://www.yassinegallaoui.com/"
+                            target="_blank" rel="noopener noreferrer">
+                            {`Yas`}
+                        </Link>
+                    </span>
+                </div>
             </div>
         </footer>
     )
