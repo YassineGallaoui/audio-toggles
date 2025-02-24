@@ -1,9 +1,14 @@
 .footer {
     border-top: solid 1px #ffffff33;
+    gap: 1rem;
 
     ul {
         margin-top: 1rem;
         list-style: none;
+    }
+
+    .container {
+        gap: 0.5rem;
     }
 }
 
