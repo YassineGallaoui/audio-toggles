@@ -1,5 +1,5 @@
 import { customThrottle } from "@/utils/customThrottle";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const StatsHelper = () => {
     const statsOverlay = useRef<HTMLDivElement | null>(null);
@@ -10,7 +10,7 @@ const StatsHelper = () => {
     const animationFrameId = useRef<number | null>(null);
 
     // FPS calculation using requestAnimationFrame
-    const calculateFPS = () => {
+    const calculateFPS = useCallback(() => {
         const currentTime = performance.now();
         frameCount.current += 1;
         const delta = currentTime - lastTime.current;
@@ -19,15 +19,15 @@ const StatsHelper = () => {
             // Calculate FPS: frames counted divided by time in seconds
             const calculatedFps = Math.round((frameCount.current * 1000) / delta);
             setFps(calculatedFps);
-            frameCount.current = 0; // Reset frame count
-            lastTime.current = currentTime; // Reset time
+            frameCount.current = 0;
+            lastTime.current = currentTime;
         }
 
         animationFrameId.current = requestAnimationFrame(calculateFPS);
-    };
+    }, []);
 
     // Update stats display
-    const updateStats = () => {
+    const updateStats = useCallback(() => {
         if (statsOverlay.current) {
             statsOverlay.current.innerHTML = `
         <span>Window: ${window.innerWidth} x ${window.innerHeight}</span><br/>
@@ -37,7 +37,7 @@ const StatsHelper = () => {
         <span>FPS: ${fps}</span>
       `;
         }
-    };
+    }, [mousePos, fps]);
 
     // Throttled event handlers
     const throttledUpdateStats = customThrottle(updateStats, 100); // Update every 100ms
@@ -46,13 +46,10 @@ const StatsHelper = () => {
     }, 100); // Update mouse position every 100ms
 
     useEffect(() => {
-        // Start FPS calculation
         animationFrameId.current = requestAnimationFrame(calculateFPS);
 
-        // Initial stats render
         updateStats();
 
-        // Event handlers
         const keydownHandler = (e: KeyboardEvent) => {
             if (e.key.toLowerCase() === "s") {
                 statsOverlay.current?.classList.toggle("show");
@@ -72,7 +69,14 @@ const StatsHelper = () => {
             window.removeEventListener("mousemove", throttledMouseMove);
             document.removeEventListener("keydown", keydownHandler);
         };
-    }, [mousePos, fps]); // Dependencies to trigger updates
+    }, [
+        mousePos,
+        fps,
+        calculateFPS,
+        throttledMouseMove,
+        throttledUpdateStats,
+        updateStats
+    ]);
 
     return (
         <div
