@@ -1,7 +1,7 @@
 :root {
-  --bg-color-dark: #bdd9e3;
+  --bg-color-dark: #fffbdb;
   --bg-color: #fffce7;
-  --bg-color-light: #e9f9ff;
+  --bg-color-light: #fffef3;
   --text-color: #001b26;
   --text-color-dark: #00141c;
   --text-color: #001b26;
@@ -14,9 +14,9 @@
     --bg-color-dark: #00141c;
     --bg-color: #001b26;
     --bg-color-light: #002a3b;
-    --text-color-dark: #bdd9e3;
+    --text-color-dark: #fffbdb;
     --text-color: #fffce7;
-    --text-color-light: #e9f9ff;
+    --text-color-light: #fffef3;
   }
 }
 

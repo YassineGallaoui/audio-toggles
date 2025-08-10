@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.css";
-import "../styles/general.scss";
 import FEHelpers from "@/components/FEHelpers";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "../styles/general.scss";
+import "../styles/globals.css";
 
 //font-1: Inter
 const InterFont = Inter({
@@ -22,7 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isProd = process.env.NEXT_PUBLIC_ENV === 'prod';
+  const isProd = process.env.NODE_ENV === 'production';
+  console.log("isProd:::", isProd);
 
   return (
     <html lang="en">

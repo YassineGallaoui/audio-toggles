@@ -161,8 +161,8 @@
     /* Default background for columns */
     div {
         /* background-color: rgba(255, 0, 0, 0.2); */
-        border-left: 0.1px solid rgba(255, 255, 255, 0.1);
-        border-right: 0.1px solid rgba(255, 255, 255, 0.1);
+        border-left: 0.1px solid color-mix(in srgb, var(--text-color) 8%, transparent);
+        border-right: 0.1px solid color-mix(in srgb, var(--text-color) 8%, transparent);
     }
 }
 

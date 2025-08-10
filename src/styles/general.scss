@@ -18,11 +18,3 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
 }
-
-.section {
-    transition: all 0.3s;
-
-    &:hover {
-        background-color: rgba(255, 0, 0, 0.1);
-    }
-}

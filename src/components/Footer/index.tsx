@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import style from './style.module.scss'
+import style from './style.module.scss';
 
 const Footer = () => {
     return (
@@ -15,7 +15,10 @@ const Footer = () => {
                             {`Yas`}
                         </Link>
                     </span>
-                    <span>{`Last update: 24 Feb 2025`}</span>
+                    <span>{`Last update: August 10, 2025`}</span>
+                    <br />
+                    <span className={'font-size-sm'}>{`Note:`}</span>
+                    <span>{`Annoyed by the grid columns? Press 'g' to toggle them`}</span>
                 </div>
 
                 <div className={style.container + " flex flex-col col-4 col-md-4 col-lg-6 mb-4"}>
