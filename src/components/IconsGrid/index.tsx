@@ -3,20 +3,20 @@
 import { useState } from "react";
 import AudioIconContainer from "../AudioIconContainer";
 import AudioIcon1 from "../AudioIcons/AudioIcon1";
+import AudioIcon10 from "../AudioIcons/AudioIcon10";
+import AudioIcon11 from "../AudioIcons/AudioIcon11";
+import AudioIcon12 from "../AudioIcons/AudioIcon12";
 import AudioIcon2 from "../AudioIcons/AudioIcon2";
 import AudioIcon3 from "../AudioIcons/AudioIcon3";
-import AudioPlayer from "../AudioPlayer";
-import CustomSelect, { SelectOption } from "../CustomSelect";
-import styles from './style.module.scss'
 import AudioIcon4 from "../AudioIcons/AudioIcon4";
 import AudioIcon5 from "../AudioIcons/AudioIcon5";
 import AudioIcon6 from "../AudioIcons/AudioIcon6";
 import AudioIcon7 from "../AudioIcons/AudioIcon7";
 import AudioIcon8 from "../AudioIcons/AudioIcon8";
 import AudioIcon9 from "../AudioIcons/AudioIcon9";
-import AudioIcon10 from "../AudioIcons/AudioIcon10";
-import AudioIcon11 from "../AudioIcons/AudioIcon11";
-import AudioIcon12 from "../AudioIcons/AudioIcon12";
+import AudioPlayer from "../AudioPlayer";
+import CustomSelect, { SelectOption } from "../CustomSelect";
+import styles from './style.module.scss';
 
 const IconsGrid = () => {
     const defaultAudioOptions: SelectOption[] = [

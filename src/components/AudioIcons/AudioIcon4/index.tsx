@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
+
 'use client'
 
+import { motion } from 'motion/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './style.module.scss';
-import { motion } from 'motion/react';
 
 export type SizeType = {
     w: number,

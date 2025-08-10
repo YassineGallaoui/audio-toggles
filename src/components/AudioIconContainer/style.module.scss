@@ -2,7 +2,7 @@
     position: relative;
     aspect-ratio: 1;
     border-radius: 0.7rem;
-    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    border: 0.5px solid color-mix(in srgb, var(--text-color) 30%, transparent);
     transition: all 0.1s linear;
 
     display: flex;
@@ -15,7 +15,7 @@
 
 
     &:hover {
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        border: 1px solid color-mix(in srgb, var(--text-color) 80%, transparent);
 
         .iconCodeLink,
         .index,
@@ -34,7 +34,7 @@
     width: 3.2rem;
     height: 3.2rem;
     padding: 1.2rem 0.6rem 0.6rem 1.2rem;
-    opacity: 0.1;
+    opacity: 0.3;
 }
 
 .gridGuide {
@@ -70,12 +70,12 @@
     position: absolute;
     top: 0.6rem;
     left: 0.6rem;
-    opacity: 0.1;
+    opacity: 0.3;
 }
 
 .tag {
     position: absolute;
     bottom: 0.6rem;
     left: 0.6rem;
-    opacity: 0.1;
+    opacity: 0.3;
 }

@@ -1,8 +1,8 @@
 'use client'
 
+import { motion } from 'motion/react';
 import React, { useEffect, useState } from 'react';
 import styles from './style.module.scss';
-import { motion } from 'motion/react';
 
 export type SizeType = {
     w: number,

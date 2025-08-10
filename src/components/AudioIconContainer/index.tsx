@@ -1,10 +1,9 @@
 "use client"
 
-import { ReactElement } from "react";
-import styles from "./style.module.scss"
-import React from "react";
-import Link from "next/link";
 import iconsData from "@/data/icons";
+import Link from "next/link";
+import React, { ReactElement } from "react";
+import styles from "./style.module.scss";
 
 const AudioIconContainer = ({ children, index, changeAudioOn }: { children: ReactElement<{ audioOn: boolean }>, allAudioOn?: boolean, index: number, changeAudioOn: () => void }) => {
     const itemsGridSettings = ` col-2 col-md-2 col-lg-3`;

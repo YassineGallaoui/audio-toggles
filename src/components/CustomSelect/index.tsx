@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from "react";
-import styles from './style.module.scss'
+import React, { useEffect, useRef, useState } from "react";
+import styles from './style.module.scss';
 
 export interface SelectOption {
     label: string;

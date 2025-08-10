@@ -1,21 +1,6 @@
-.enableDisableButton {
-    width: 100%;
-    border: 0.1px solid rgba(255, 255, 255, 0.3);
-    background-color: var(--bg-color);
-    border-radius: 0.4rem;
-    color: rgba(255, 255, 255, 0.7);
-    padding: 0.6rem 0.8rem;
-    font-size: 1rem;
-
-    &:hover {
-        border: 0.1px solid rgba(255, 255, 255, 1);
-        color: rgba(255, 255, 255, 1);
-    }
-}
-
 .playButton {
     background-color: transparent;
-    border: 0.1px solid rgba(255, 255, 255, 0.3);
+    border: 0.1px solid color-mix(in srgb, var(--text-color) 30%, transparent);
     border-radius: 0.4rem;
     padding: 0.6rem 0.8rem;
     font-size: 1rem;

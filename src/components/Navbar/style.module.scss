@@ -1,5 +1,5 @@
 .navContainer {
-    background-color: #ffffff11;
+    background-color: color-mix(in srgb, var(--text-color) 10%, transparent);
 
     a {
         text-decoration: none;
