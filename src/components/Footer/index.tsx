@@ -16,9 +16,9 @@ const Footer = () => {
                         </Link>
                     </span>
                     <span>{`Last update: August 10, 2025`}</span>
-                    <br />
+                    {/* <br />
                     <span className={'font-size-sm'}>{`Note:`}</span>
-                    <span>{`Annoyed by the grid columns? Press 'g' to toggle them`}</span>
+                    <span>{`Annoyed by the grid columns? Press 'g' to toggle them`}</span> */}
                 </div>
 
                 <div className={style.container + " flex flex-col col-4 col-md-4 col-lg-6 mb-4"}>
