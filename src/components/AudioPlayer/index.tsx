@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { Howl } from "howler";
+import React, { useEffect, useState } from "react";
 
 interface AudioPlayerProps {
     src: string;
@@ -29,7 +29,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, audioOn }) => {
                     newSound.play();
                 },
             });
-            console.log(newSound)
             setSound(newSound);
 
             if (audioOn)

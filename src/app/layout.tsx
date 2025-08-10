@@ -22,8 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isProd = process.env.NODE_ENV === 'production';
-  console.log("isProd:::", isProd);
+  /* const isProd = process.env.NODE_ENV === 'production'; */
 
   return (
     <html lang="en">
@@ -31,7 +30,8 @@ export default function RootLayout({
         <script defer data-domain="audio-toggles.vercel.app" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className={`${InterFont.variable}`}>
-        {!isProd && < FEHelpers />}
+        <FEHelpers />
+        {/* {!isProd && < FEHelpers />} */}
         <Navbar></Navbar>
         <main
           className={'relative wp-100'}>

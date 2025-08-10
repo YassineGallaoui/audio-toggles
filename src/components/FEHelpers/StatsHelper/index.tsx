@@ -10,7 +10,6 @@ const StatsHelper = () => {
                             <span>Aspect ratio: ${(window.innerWidth / window.innerHeight).toFixed(2)}</span>`
 
         const resizeHandler = () => {
-            console.log('resize');
             tag.innerHTML = `<span>${window.innerWidth} x ${window.innerHeight}</span><br/>
                             <span>Aspect ratio: ${(window.innerWidth / window.innerHeight).toFixed(2)}</span>`
         }
