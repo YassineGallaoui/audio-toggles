@@ -6,15 +6,25 @@
 
     rect {
         fill: var(--text-color);
-        &:nth-child(1) {
-            animation: scaleXanim1 1s ease infinite;
-        }
-        &:nth-child(2) {
-            animation: scaleXanim2 1s ease infinite;
+        // Use a CSS variable for scaleX
+        transform: scaleX(var(--rect-scale, 0.1));
+        transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.on {
+        rect {
+            animation: none;
+            &:nth-child(1) {
+                animation: scaleXanim1 1s ease-in-out infinite;
+            }
+            &:nth-child(2) {
+                animation: scaleXanim2 1s ease-in-out infinite;
+            }
         }
     }
 }
 
+// Keyframes remain the same, but use transform directly
 @keyframes scaleXanim1 {
     0% { transform: scaleX(0.912); }
     10% { transform: scaleX(0.657); }
@@ -42,5 +52,3 @@
     90% { transform: scaleX(0.294); }
     100% { transform: scaleX(0.340); }
 }
-
-

@@ -1,77 +1,123 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslin    const [amplitude, setAmplitude] = useState(0);
+    const [time, setTime] = useState({ t: 0 });
+
+    // Combine path generation and animation logic
+    const { pathData } = useMemo(() => {
+        const scale = 2.6;
+        const step = 0.1;
+        const points: string[] = new Array(Math.floor(20 / step));
+        let i = 0;
+
+        // Add a small base amplitude to ensure the wave is always visible
+        const baseAmplitude = 0.1;
+        const effectiveAmplitude = amplitude + baseAmplitude;
+
+        for (let x = -10; x <= 10; x += step) {
+            const y = effectiveAmplitude * Math.sin(x * 0.5 + time.t * 3);
+            points[i++] = `${(x * scale).toFixed(2)},${(-y * scale).toFixed(2)}`;
+        }
+
+        return {
+            pathData: `M ${points.join(' L ')}`
+        };
+    }, [time.t, amplitude]);t/no-img-element */
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import styles from './style.module.scss';
 import { AudioIconProps } from '../AudioIcon1';
 
-const AudioIcon2: React.FC<AudioIconProps> = ({ audioOn }) => {
-
-    const [pathData, setPathData] = useState('');
+const AudioIcon2: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
     const [amplitude, setAmplitude] = useState(0);
-    const [t, setT] = useState(0);
+    const [time, setTime] = useState({ t: 0 });
 
-
-    const generateSineWavePath = (t: number, amp: number) => {
-        const points = [];
+    // Combine path generation and animation logic
+    const { pathData } = useMemo(() => {
         const scale = 2.6;
         const step = 0.1;
+        const points: string[] = new Array(Math.floor(20 / step));
+        let i = 0;
 
         for (let x = -10; x <= 10; x += step) {
-
-            const y = amp * Math.sin(x * 1 / 2 + t * 3);
-            points.push(`${(x * scale).toFixed(2)},${(-y * scale).toFixed(2)}`);
+            const y = amplitude * Math.sin(x * 0.5 + time.t * 4);
+            points[i++] = `${(x * scale).toFixed(2)},${(-y * scale).toFixed(2)}`;
         }
 
+        return {
+            pathData: `M ${points.join(' L ')}`
+        };
+    }, [time.t, amplitude]);
 
-        return `M ${points.join(' L ')}`;
-    };
-
+    // Handle amplitude animation
     useEffect(() => {
+        if (!audioOn && amplitude === 0) return; // Skip if already at target state
+        
         let animationFrame: number;
+        let startTime: number | null = null;
+        const duration = 500;
+        const startAmp = amplitude;
+        const targetAmp = audioOn ? 1.0 : 0;
 
-        const animateAmplitude = () => {
-            setAmplitude((prevAmp) => {
-                const targetAmp = audioOn ? 1.0 : 0;
-                const step = 0.02;
+        const animateAmplitude = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const newAmp = startAmp + (targetAmp - startAmp) * progress;
+            setAmplitude(newAmp);
 
-
-                if (Math.abs(targetAmp - prevAmp) < step) {
-                    return targetAmp;
-                }
-
-                return prevAmp + (targetAmp > prevAmp ? step : -step);
-            });
-
-            animationFrame = requestAnimationFrame(animateAmplitude);
+            if (progress < 1) {
+                animationFrame = requestAnimationFrame(animateAmplitude);
+            }
         };
 
-        animateAmplitude();
-
-        return () => cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(animateAmplitude);
+        return () => {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+        };
     }, [audioOn]);
 
-
+    // Handle continuous time animation
     useEffect(() => {
-        const interval = setInterval(() => {
-            setT((prevT) => prevT + 0.1);
-        }, 50);
+        let animationFrame: number;
+        let startTime: number | null = null;
 
-        return () => clearInterval(interval);
+        const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = (timestamp - startTime) / 1000;
+            
+            // Update time as an object to ensure reference changes
+            setTime({ t: progress });
+            animationFrame = requestAnimationFrame(animate);
+        };
+
+        animationFrame = requestAnimationFrame(animate);
+        
+        return () => {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+        };
     }, []);
 
-
-    useEffect(() => {
-        setPathData(generateSineWavePath(t, amplitude));
-    }, [t, amplitude]);
+    const svgClassName = useMemo(() => {
+        return `${styles.svg} ${audioOn ? styles.on : ''}`;
+    }, [audioOn]);
 
     return (
-        <svg width="100" height="100" viewBox="-50 -50 100 100" fill="none" className={styles.svg + ' ' + (audioOn ? styles.on : '')}>
-            <path d={pathData} strokeWidth="2"
+        <svg 
+            width="100" 
+            height="100" 
+            viewBox="-50 -50 100 100" 
+            fill="none" 
+            className={svgClassName}
+        >
+            <path 
+                d={pathData} 
+                strokeWidth="2"
                 strokeLinecap="round"
-                strokeLinejoin="round" />
+                strokeLinejoin="round" 
+            />
         </svg>
     );
-};
+});
 
 export default AudioIcon2;

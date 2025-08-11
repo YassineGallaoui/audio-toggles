@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'motion/react';
-import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styles from './style.module.scss';
 
 export type SizeType = {
@@ -13,131 +13,133 @@ export interface AudioIconProps {
     sizeProp?: SizeType
 }
 
-const AudioIcon5: React.FC<AudioIconProps> = ({ audioOn, sizeProp }) => {
+const AudioIcon5: React.FC<AudioIconProps> = React.memo(({ audioOn = false, sizeProp }) => {
     const [size, setSize] = useState<SizeType>(sizeProp ?? { w: 100, h: 100 });
     const [isInitialTransition, setIsInitialTransition] = useState(true);
 
-    useEffect(() => {
-        if (sizeProp != null)
-            setSize(sizeProp)
-        else
-            setSize({ w: 100, h: 100 });
-    }, [sizeProp]);
+    const defaultSize = useMemo(() => ({ w: 100, h: 100 }), []);
 
-    // Handle the initial transition when audioOn first becomes true
     useEffect(() => {
-        if (audioOn && isInitialTransition) {
+        setSize(sizeProp ?? defaultSize);
+    }, [sizeProp, defaultSize]);
+
+    useEffect(() => {
+        if (!audioOn) {
+            setIsInitialTransition(true);
+            return;
+        }
+
+        if (isInitialTransition) {
             const timer = setTimeout(() => {
                 setIsInitialTransition(false);
-            }, 500); // Match this with the duration of the initial transition
+            }, 500);
 
             return () => clearTimeout(timer);
         }
-
-        if (!audioOn) {
-            // Reset for next time audioOn becomes true
-            setIsInitialTransition(true);
-        }
     }, [audioOn, isInitialTransition]);
+
+    const svgClassName = useMemo(() => {
+        return `${styles.svg} ${audioOn ? styles.on : ''}`;
+    }, [audioOn]);
+
+    const viewBox = useMemo(() => {
+        return `${-1 * (size.w / 2)} ${-1 * (size.h / 2)} ${size.w} ${size.h}`;
+    }, [size.w, size.h]);
 
     return (
         <svg
             width={size.w}
             height={size.h}
-            viewBox={`${-1 * (size.w / 2)} ${-1 * (size.h / 2)} ${size.w} ${size.h}`}
-            className={styles.svg + ' ' + (audioOn ? styles.on : '')}
+            viewBox={viewBox}
+            className={svgClassName}
         >
-            {/* Bottom Circle */}
-            {audioOn ? (
-                isInitialTransition ? (
-                    // Initial transition from small to starting animation size
+            <AnimatePresence mode="wait">
+                {/* Bottom Circle */}
+                {audioOn && (
                     <motion.circle
+                        key="bottom-circle"
                         cx={0}
                         cy={0}
                         fill="rgba(255, 255, 255, 0.2)"
                         initial={{ r: 5 }}
-                        animate={{ r: 25 }}
-                        transition={{
-                            duration: 0.5,
-                            ease: "easeOut"
+                        animate={{ 
+                            r: isInitialTransition 
+                                ? 25 
+                                : [25, 30, 25, 27, 24, 29, 25]
                         }}
-                    />
-                ) : (
-                    // Continuous animation that loops within the array
-                    <motion.circle
-                        cx={0}
-                        cy={0}
-                        fill="rgba(255, 255, 255, 0.2)"
-                        initial={{ r: 25 }}
-                        animate={{ r: [25, 30, 25, 27, 24, 29, 25] }}
-                        transition={{
-                            duration: 2,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            repeatType: "loop"
+                        exit={{
+                            r: 5,
+                            transition: { duration: 0.3, ease: "easeInOut" }
                         }}
+                        transition={isInitialTransition 
+                            ? {
+                                duration: 0.5,
+                                ease: "easeOut"
+                            }
+                            : {
+                                duration: 2,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                                repeatType: "loop"
+                            }
+                        }
                     />
-                )
-            ) : (
-                <motion.circle
-                    cx={0}
-                    cy={0}
-                    fill="rgba(255, 255, 255, 0.2)"
-                    animate={{ r: 5 }}
-                    initial={isInitialTransition ? { r: 5 } : { r: 25 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeInOut"
-                    }}
-                />
-            )}
+                )}
 
-            {/* Top Circle */}
-            {audioOn ? (
-                isInitialTransition ? (
-                    // Initial transition from small to starting animation size
+                {/* Top Circle */}
+                {audioOn && (
                     <motion.circle
+                        key="top-circle"
                         cx={0}
                         cy={0}
                         fill="rgba(255, 255, 255, 0.2)"
                         initial={{ r: 5 }}
-                        animate={{ r: 15 }}
-                        transition={{
-                            duration: 0.5,
-                            ease: "easeOut"
+                        animate={{ 
+                            r: isInitialTransition 
+                                ? 15 
+                                : [15, 20, 15, 17, 14, 19, 15]
                         }}
-                    />
-                ) : (
-                    // Continuous animation that loops within the array
-                    <motion.circle
-                        cx={0}
-                        cy={0}
-                        fill="rgba(255, 255, 255, 0.2)"
-                        initial={{ r: 15 }}
-                        animate={{ r: [15, 20, 15, 17, 14, 19, 15] }}
-                        transition={{
-                            duration: 2,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            repeatType: "loop"
+                        exit={{
+                            r: 5,
+                            transition: { duration: 0.3, ease: "easeInOut" }
                         }}
+                        transition={isInitialTransition 
+                            ? {
+                                duration: 0.5,
+                                ease: "easeOut"
+                            }
+                            : {
+                                duration: 2,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                                repeatType: "loop"
+                            }
+                        }
                     />
-                )
-            ) : (
-                <motion.circle
-                    cx={0}
-                    cy={0}
-                    fill="rgba(255, 255, 255, 0.2)"
-                    animate={{ r: 5 }}
-                    initial={isInitialTransition ? { r: 5 } : { r: 15 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeInOut"
-                    }}
-                />
-            )}
+                )}
+
+                {/* Static circles when audio is off */}
+                {!audioOn && (
+                    <>
+                        <motion.circle
+                            key="static-bottom"
+                            cx={0}
+                            cy={0}
+                            r={5}
+                            fill="rgba(255, 255, 255, 0.2)"
+                        />
+                        <motion.circle
+                            key="static-top"
+                            cx={0}
+                            cy={0}
+                            r={5}
+                            fill="rgba(255, 255, 255, 0.2)"
+                        />
+                    </>
+                )}
+            </AnimatePresence>
         </svg>
     );
-};
+});
 
 export default AudioIcon5;

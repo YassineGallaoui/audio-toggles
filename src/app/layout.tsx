@@ -27,6 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          crossOrigin="anonymous"
+          src="//unpkg.com/react-scan/dist/auto.global.js"
+        />
+        {/* rest of your scripts go under */}
         <script defer data-domain="audio-toggles.vercel.app" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className={`${InterFont.variable}`}>
