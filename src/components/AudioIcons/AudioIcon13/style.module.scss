@@ -1,0 +1,10 @@
+.svg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    rect {
+        fill: var(--text-color);
+        transition: width 0.2s ease-in-out;
+    }
+}
