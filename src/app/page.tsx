@@ -10,28 +10,28 @@ export default function Home() {
   const defaultAudioOptions: SelectOption[] = [
     {
       label: "Ocean",
-      mp3Link: "./ocean.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/ocean.mp3"
     }, {
       label: "Forest",
-      mp3Link: "./forest.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/forest.mp3"
     }, {
       label: "Windy Mountain",
-      mp3Link: "./mountain.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/mountain.mp3"
     }, {
       label: "Binaural Beats - Gamma",
-      mp3Link: "./bbGamma.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/bbGamma.mp3"
     }, {
       label: "Binaural Beats - Beta",
-      mp3Link: "./bbBeta.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/bbBeta.mp3"
     }, {
       label: "Binaural Beats - Alpha",
-      mp3Link: "./bbAlpha.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/bbAlpha.mp3"
     }, {
       label: "Binaural Beats - Theta",
-      mp3Link: "./bbTheta.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/bbTheta.mp3"
     }, {
       label: "Binaural Beats - Delta",
-      mp3Link: "./bbDelta.mp3"
+      mp3Link: "https://audio-toggles.s3.eu-north-1.amazonaws.com/audio/bbDelta.mp3"
     },
   ]
   const [selectedMp3, setSelectedMp3] = useState<string>(defaultAudioOptions[0].mp3Link);
