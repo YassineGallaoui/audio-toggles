@@ -1,10 +1,46 @@
 .svg {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     rect {
         fill: var(--text-color);
-        transition: width 0.2s ease-in-out;
+        &:nth-child(1) {
+            animation: scaleXanim1 1s ease infinite;
+        }
+        &:nth-child(2) {
+            animation: scaleXanim2 1s ease infinite;
+        }
     }
 }
+
+@keyframes scaleXanim1 {
+    0% { transform: scaleX(0.912); }
+    10% { transform: scaleX(0.657); }
+    20% { transform: scaleX(0.914); }
+    30% { transform: scaleX(0.818); }
+    40% { transform: scaleX(0.609); }
+    50% { transform: scaleX(0.756); }
+    60% { transform: scaleX(0.876); }
+    70% { transform: scaleX(0.729); }
+    80% { transform: scaleX(0.598); }
+    90% { transform: scaleX(0.533); }
+    100% { transform: scaleX(0.912); }
+}
+
+@keyframes scaleXanim2 {
+    0% { transform: scaleX(0.340); }
+    10% { transform: scaleX(0.555); }
+    20% { transform: scaleX(0.404); }
+    30% { transform: scaleX(0.272); }
+    40% { transform: scaleX(0.541); }
+    50% { transform: scaleX(0.282); }
+    60% { transform: scaleX(0.352); }
+    70% { transform: scaleX(0.337); }
+    80% { transform: scaleX(0.452); }
+    90% { transform: scaleX(0.294); }
+    100% { transform: scaleX(0.340); }
+}
+
+

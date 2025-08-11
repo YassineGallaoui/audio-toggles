@@ -38,14 +38,11 @@ const IconsGrid = ({ audioOn, setAudioOn }: IconsGridProps) => {
 
     return (
         <div className="sub-grid col-12">
-            {AudioIcons.map((IconComponent, index) => {
-                console.log("index", index);
-                return (
-                    <AudioIconContainer key={index} index={index} changeAudioOn={() => setAudioOn(!audioOn)}>
-                        <IconComponent audioOn={audioOn} />
-                    </AudioIconContainer>
-                )
-            })}
+            {AudioIcons.map((IconComponent, index) => (
+                <AudioIconContainer key={index} index={index} changeAudioOn={() => setAudioOn(!audioOn)}>
+                    <IconComponent audioOn={audioOn} />
+                </AudioIconContainer>
+            ))}
         </div>
     )
 }
