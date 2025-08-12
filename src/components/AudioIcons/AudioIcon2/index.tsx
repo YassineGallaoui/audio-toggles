@@ -51,7 +51,7 @@ const AudioIcon2: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
     // Handle amplitude animation
     useEffect(() => {
         if (!audioOn && amplitude === 0) return; // Skip if already at target state
-        
+
         let animationFrame: number;
         let startTime: number | null = null;
         const duration = 500;
@@ -62,7 +62,7 @@ const AudioIcon2: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             const newAmp = startAmp + (targetAmp - startAmp) * progress;
             setAmplitude(newAmp);
 
@@ -85,14 +85,14 @@ const AudioIcon2: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
         const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = (timestamp - startTime) / 1000;
-            
+
             // Update time as an object to ensure reference changes
             setTime({ t: progress });
             animationFrame = requestAnimationFrame(animate);
         };
 
         animationFrame = requestAnimationFrame(animate);
-        
+
         return () => {
             if (animationFrame) cancelAnimationFrame(animationFrame);
         };
@@ -103,21 +103,23 @@ const AudioIcon2: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
     }, [audioOn]);
 
     return (
-        <svg 
-            width="100" 
-            height="100" 
-            viewBox="-50 -50 100 100" 
-            fill="none" 
+        <svg
+            width="100"
+            height="100"
+            viewBox="-50 -50 100 100"
+            fill="none"
             className={svgClassName}
         >
-            <path 
-                d={pathData} 
+            <path
+                d={pathData}
                 strokeWidth="2"
                 strokeLinecap="round"
-                strokeLinejoin="round" 
+                strokeLinejoin="round"
             />
         </svg>
     );
 });
+
+AudioIcon2.displayName = "AudioIcon2";
 
 export default AudioIcon2;

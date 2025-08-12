@@ -62,16 +62,16 @@ const AudioIcon5: React.FC<AudioIconProps> = React.memo(({ audioOn = false, size
                         cy={0}
                         fill="rgba(255, 255, 255, 0.2)"
                         initial={{ r: 5 }}
-                        animate={{ 
-                            r: isInitialTransition 
-                                ? 25 
+                        animate={{
+                            r: isInitialTransition
+                                ? 25
                                 : [25, 30, 25, 27, 24, 29, 25]
                         }}
                         exit={{
                             r: 5,
                             transition: { duration: 0.3, ease: "easeInOut" }
                         }}
-                        transition={isInitialTransition 
+                        transition={isInitialTransition
                             ? {
                                 duration: 0.5,
                                 ease: "easeOut"
@@ -94,16 +94,16 @@ const AudioIcon5: React.FC<AudioIconProps> = React.memo(({ audioOn = false, size
                         cy={0}
                         fill="rgba(255, 255, 255, 0.2)"
                         initial={{ r: 5 }}
-                        animate={{ 
-                            r: isInitialTransition 
-                                ? 15 
+                        animate={{
+                            r: isInitialTransition
+                                ? 15
                                 : [15, 20, 15, 17, 14, 19, 15]
                         }}
                         exit={{
                             r: 5,
                             transition: { duration: 0.3, ease: "easeInOut" }
                         }}
-                        transition={isInitialTransition 
+                        transition={isInitialTransition
                             ? {
                                 duration: 0.5,
                                 ease: "easeOut"
@@ -141,5 +141,7 @@ const AudioIcon5: React.FC<AudioIconProps> = React.memo(({ audioOn = false, size
         </svg>
     );
 });
+
+AudioIcon5.displayName = "AudioIcon5";
 
 export default AudioIcon5;

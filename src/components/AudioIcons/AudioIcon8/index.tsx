@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 'use client'
 
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
@@ -34,8 +34,8 @@ const AudioIcon8: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
         const animateAmplitude = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const currentAmp = audioOn 
+
+            const currentAmp = audioOn
                 ? progress * maxAmplitude
                 : (1 - progress) * maxAmplitude;
 
@@ -81,21 +81,23 @@ const AudioIcon8: React.FC<AudioIconProps> = React.memo(({ audioOn }) => {
     }, [audioOn]);
 
     return (
-        <svg 
-            width="100" 
-            height="100" 
-            viewBox="-50 -50 100 100" 
-            fill="none" 
+        <svg
+            width="100"
+            height="100"
+            viewBox="-50 -50 100 100"
+            fill="none"
             className={svgClassName}
         >
-            <path 
-                d={pathData} 
+            <path
+                d={pathData}
                 strokeWidth="2"
                 strokeLinecap="round"
-                strokeLinejoin="round" 
+                strokeLinejoin="round"
             />
         </svg>
     );
 });
+
+AudioIcon8.displayName = "AudioIcon8";
 
 export default AudioIcon8;
