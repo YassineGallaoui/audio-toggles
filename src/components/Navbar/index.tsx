@@ -15,9 +15,9 @@ const Navbar = () => {
                             {`Audio Toggles`}
                         </Link>
                     </div>
-                    <button className={style.createButton + " col-2 md-col-2 sm-col-1 flex jc-center ai-center"}>
+                    {/* <button className={style.createButton + " col-2 md-col-2 sm-col-1 flex jc-center ai-center"}>
                         Create your own
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </nav>
