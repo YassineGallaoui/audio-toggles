@@ -19,15 +19,15 @@ const AudioControls = ({
 }: AudioControlsProps) => {
 
     return (
-        <div className="sub-grid col-12">
+        <div className="row col-12">
             <button
                 type="button"
                 onClick={() => setAudioOn(!audioOn)}
-                className={`${styles.playButton} col-4 col-md-1 col-lg-1 offset-md-4 offset-lg-8 mb-md-2`}>
+                className={`${styles.playButton} col-4 md-col-1 lg-col-1 md-offset-4 lg-offset-8 md-mb-2`}>
                 {!audioOn ? 'Play' : 'Pause'}
             </button>
             <CustomSelect
-                className={`col-4 col-md-3 col-lg-3 mb-2`}
+                className={`col-4 md-col-3 lg-col-3 mb-2`}
                 placeholder={defaultAudioOptions[0].label}
                 options={defaultAudioOptions}
                 onSelect={(v: string) => { setSelectedMp3(v); setAudioOn(true); }}

@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className={style.footer + ' mt-4'}>
             <div className='container pt-4'>
-                <div className={style.container + " flex flex-col col-4 col-md-4 col-lg-6 mb-4"}>
+                <div className={style.container + " flex flex-col col-4 md-col-4 lg-col-6 mb-4"}>
                     <span className={'text-bold'}>{`
                     Audio Toggles`}</span>
                     <span style={{ marginTop: "1rem" }}>{`Handcrafted by `}
@@ -21,7 +21,7 @@ const Footer = () => {
                     <span>{`Annoyed by the grid columns? Press 'g' to toggle them`}</span> */}
                 </div>
 
-                <div className={style.container + " flex flex-col col-4 col-md-4 col-lg-6 mb-4"}>
+                <div className={style.container + " flex flex-col col-4 md-col-4 lg-col-6 mb-4"}>
                     <span>{`Animations are made at code level`}</span>
                     <span>{`Some are made with the help of `}
                         <Link

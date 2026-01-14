@@ -1,14 +1,20 @@
 "use client";
 
-import GridHelper from "./GridHelper";
-import StatsHelper from "./StatsHelper";
+import { GridHelper, StatsHelper } from "next-fe-helpers";
+
 
 const FEHelpers = () => {
     return (
-        <>
-            <GridHelper />
-            <StatsHelper />
-        </>
+        <div style={{ position: 'absolute' }}>
+            <GridHelper
+                show={true}
+                columnsColor={'transparent'}
+                columnsBorderWidth={"0.1px"}
+                columnsBorderColor={"#ffffff10"}
+                columnsBorderStyle={"solid"}
+            ></GridHelper>
+            <StatsHelper></StatsHelper>
+        </div>
     )
 }
 

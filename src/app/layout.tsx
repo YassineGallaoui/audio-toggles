@@ -2,7 +2,9 @@ import FEHelpers from "@/components/FEHelpers";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
+import 'next-fe-helpers/dist/style.css';
 import { Inter } from "next/font/google";
+import '../../node_modules/msccss/dist/main.min.css';
 import "../styles/general.scss";
 import "../styles/globals.css";
 

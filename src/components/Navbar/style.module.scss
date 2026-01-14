@@ -4,4 +4,12 @@
     a {
         text-decoration: none;
     }
+
+    .createButton {
+        background-color: transparent;
+        color: var(--text-color);
+        border: 0.3px solid var(--text-color);
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+    }
 }

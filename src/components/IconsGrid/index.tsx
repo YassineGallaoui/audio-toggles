@@ -37,7 +37,7 @@ const IconsGrid = ({ audioOn, setAudioOn }: IconsGridProps) => {
     ]
 
     return (
-        <div className="sub-grid col-12">
+        <div className="row col-12">
             {AudioIcons.map((IconComponent, index) => (
                 <AudioIconContainer key={index} index={index} changeAudioOn={() => setAudioOn(!audioOn)}>
                     <IconComponent audioOn={audioOn} />

@@ -4,7 +4,7 @@ import React, { ReactElement } from "react";
 import styles from "./style.module.scss";
 
 const AudioIconContainer = ({ children, index, changeAudioOn }: { children: ReactElement<{ audioOn: boolean }>, allAudioOn?: boolean, index: number, changeAudioOn: () => void }) => {
-    const itemsGridSettings = ` col-2 col-md-2 col-lg-3`;
+    const itemsGridSettings = ` col-2 md-col-2 lg-col-3 jc-center ai-center`;
 
     const childWithProps = React.cloneElement(children);
 
