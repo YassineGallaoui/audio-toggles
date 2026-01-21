@@ -12,7 +12,6 @@ import AudioIcon6 from "../AudioIcons/AudioIcon6";
 import AudioIcon7 from "../AudioIcons/AudioIcon7";
 import AudioIcon8 from "../AudioIcons/AudioIcon8";
 import AudioIcon9 from "../AudioIcons/AudioIcon9";
-import CustomAudioIcon from "../AudioIcons/CustomAudioIcon/CustomAudioIcon";
 
 interface IconsGridProps {
     audioOn: boolean,
@@ -35,7 +34,6 @@ const IconsGrid = ({ audioOn, setAudioOn }: IconsGridProps) => {
         AudioIcon11,
         AudioIcon12,
         AudioIcon13,
-        CustomAudioIcon
     ]
 
     return (
