@@ -11,13 +11,13 @@
     &.on {
         .outerCircle {
             animation: none;
-            r: 5;
+            r: 5px;
             animation: growAndPulseOuter 0.5s ease-out forwards, pulseOuter 2s ease-in-out infinite 0.5s;
         }
 
         .innerCircle {
             animation: none;
-            r: 5;
+            r: 5px;
             animation: growAndPulseInner 0.5s ease-out forwards, pulseInner 2s ease-in-out infinite 0.5s;
         }
     }
@@ -36,100 +36,100 @@
 
 @keyframes growAndPulseOuter {
     0% {
-        r: 5;
+        r: 5px;
     }
 
     100% {
-        r: 25;
+        r: 25px;
     }
 }
 
 @keyframes pulseOuter {
     0% {
-        r: 25;
+        r: 25px;
     }
 
     15% {
-        r: 30;
+        r: 30px;
     }
 
     30% {
-        r: 25;
+        r: 25px;
     }
 
     45% {
-        r: 27;
+        r: 27px;
     }
 
     60% {
-        r: 24;
+        r: 24px;
     }
 
     75% {
-        r: 29;
+        r: 29px;
     }
 
     100% {
-        r: 25;
+        r: 25px;
     }
 }
 
 @keyframes growAndPulseInner {
     0% {
-        r: 5;
+        r: 5px;
     }
 
     100% {
-        r: 15;
+        r: 15px;
     }
 }
 
 @keyframes pulseInner {
     0% {
-        r: 15;
+        r: 15px;
     }
 
     15% {
-        r: 20;
+        r: 20px;
     }
 
     30% {
-        r: 15;
+        r: 15px;
     }
 
     45% {
-        r: 17;
+        r: 17px;
     }
 
     60% {
-        r: 14;
+        r: 14px;
     }
 
     75% {
-        r: 19;
+        r: 19px;
     }
 
     100% {
-        r: 15;
+        r: 15px;
     }
 }
 
 @keyframes shrinkOuter {
     0% {
-        r: 25;
+        r: 25px;
     }
 
     100% {
-        r: 5;
+        r: 5px;
     }
 }
 
 @keyframes shrinkInner {
     0% {
-        r: 15;
+        r: 15px;
     }
 
     100% {
-        r: 5;
+        r: 5px;
     }
 }
