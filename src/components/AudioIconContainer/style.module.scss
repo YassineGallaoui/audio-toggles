@@ -4,6 +4,7 @@
     border-radius: 0.7rem;
     border: 0.5px solid color-mix(in srgb, var(--text-color) 30%, transparent);
     transition: all 0.1s linear;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
