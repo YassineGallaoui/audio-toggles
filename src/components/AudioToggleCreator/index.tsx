@@ -27,8 +27,8 @@ const AudioToggleCreator: React.FC<AudioToggleCreatorProps> = ({ isOpen, onClose
 
     // Color states
     const [useCustomColors, setUseCustomColors] = useState(false);
-    const [colorOn, setColorOn] = useState('#000000');
-    const [colorOff, setColorOff] = useState('#000000');
+    const [colorOn, setColorOn] = useState('#FF0000');
+    const [colorOff, setColorOff] = useState('#FFFF00');
 
     // Reset preview state when modal opens
     useEffect(() => {
