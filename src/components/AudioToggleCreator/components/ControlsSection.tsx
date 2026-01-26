@@ -81,16 +81,11 @@ const ControlsSection: React.FC<ControlsSectionProps> = ({
             </div>
 
             <Accordion
-                label="Wave Formula (Javascript)"
+                label="Wave Formula"
                 isOpen={isFormulaOpen}
                 onToggle={() => setIsFormulaOpen(!isFormulaOpen)}
             >
                 <div style={{ paddingBottom: '0.5rem' }}>
-                    <p style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem' }}>
-                        Available variables: <code>x</code> (position), <code>t</code> (time).
-                        <br />
-                        Return value: <code>y</code>
-                    </p>
                     <textarea
                         className={styles.textarea}
                         value={formula}
@@ -119,7 +114,7 @@ const ControlsSection: React.FC<ControlsSectionProps> = ({
                         <span>ON Color</span>
                         <input
                             type="color"
-                            className={styles.colorInput}
+                            className={styles.input + " " + styles.colorInput}
                             value={colorOn}
                             onChange={(e) => setColorOn(e.target.value)}
                         />
@@ -128,7 +123,7 @@ const ControlsSection: React.FC<ControlsSectionProps> = ({
                         <span>OFF Color</span>
                         <input
                             type="color"
-                            className={styles.colorInput}
+                            className={styles.input + " " + styles.colorInput}
                             value={colorOff}
                             onChange={(e) => setColorOff(e.target.value)}
                         />
